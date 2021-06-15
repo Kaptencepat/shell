@@ -2,23 +2,23 @@
 
 echo '>> Installing git'
 
-yum install git
+yum install git -y
 
 echo '>> Installing nano'
 
-yum install nano
+yum install nano -y
 
 echo '>> Installing wget'
 
-yum install wget
+yum install wget -y
 
 echo '>> Installing NGINX'
 
-yum install epel-release
+yum install epel-release -y
 
-yum install nginx
+yum install nginx -y
 
-systemctl start nginx
+systemctl start nginx -y
 
 firewall-cmd --permanent --zone=public --add-service=http 
 
@@ -26,25 +26,25 @@ firewall-cmd --permanent --zone=public --add-service=https
 
 firewall-cmd --reload
 
-sudo systemctl enable nginx
+sudo systemctl enable nginx -y
 
 echo '>> Install PHP'
 
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
 
-yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y
 
-yum install yum-utils
+yum install yum-utils -y
 
 yum-config-manager --enable remi-php73
 
-yum install php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-xml php-mbstring
+yum install php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-xml php-mbstring -y
 
 php -v
  
 echo '>> Install Composer'
 
-yum install php-cli php-zip wget unzip
+yum install php-cli php-zip wget unzip -y
 
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
@@ -56,7 +56,7 @@ php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 echo '>> Install Redis'
 
-yum install epel-release
+yum install epel-release -y
 
 yum install redis -y
 
@@ -76,7 +76,7 @@ md5sum mysql57-community-release-el7-9.noarch.rpm
 
 rpm -ivh mysql57-community-release-el7-9.noarch.rpm
 
-yum install mysql-server
+yum install mysql-server -y
 
 systemctl start mysqld
 
