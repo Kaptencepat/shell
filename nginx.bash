@@ -74,7 +74,7 @@ wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
 
 md5sum mysql57-community-release-el7-9.noarch.rpm
 
-rpm -ivh mysql57-community-release-el7-9.noarch.rpm
+rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 
 yum install mysql-server -y
 
